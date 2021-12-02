@@ -15,8 +15,8 @@ export default function users() {
       });
   }, [users]);
 
-  const handleSubmitUsers = async () => {
-    axios.post("/api/users", {
+  const handleSubmitUsers = async (userId: any) => {
+    axios.post(`/api/users/`, {
       name: "randomNameAdded",
     });
   };
