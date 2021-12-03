@@ -6,7 +6,8 @@ import Meta from "../components/Meta";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div>
-      {/* <Meta /> */}
+      User logged times
+      <Meta />
       {/* <Nav /> */}
       <Component {...pageProps} />
     </div>
