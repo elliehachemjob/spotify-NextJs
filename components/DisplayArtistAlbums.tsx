@@ -12,30 +12,35 @@ export default function DisplayArtistAlbums({ items }: any) {
   return (
     <div className="container" style={{ display: "flex", flexWrap: "wrap" }}>
       {items
-        ? items.items.map((item: any) => {
-            return (
-              <div>
-                <Card style={{ margin: "10px" }} sx={{ maxWidth: 300 }}>
-                  <CardContent>
-                    <RenderAlbumsImages images={item.images} />
-                    <RenderArtistNames names={item.name} />
-                    <RenderReleaseDate date={item.release_date} />
-                    <RenderTracksNumbers tracks={item.total_tracks} />
-                    <RenderArtistIncluded artists={item.artists} />
-                  </CardContent>
-                  <CardActions>
-                    <Button
-                      onClick={() => {
-                        window.open(item.external_urls.spotify);
-                      }}
-                    >
-                      Preview On Spotify
-                    </Button>
-                  </CardActions>
-                </Card>
-              </div>
-            );
-          })
+        ? items.items
+            .filter(
+              (v: any, i: any, a: any) =>
+                a.findIndex((t: any) => t.name === v.name) === i
+            )
+            .map((item: any) => {
+              return (
+                <div>
+                  <Card style={{ margin: "10px" }} sx={{ maxWidth: 300 }}>
+                    <CardContent>
+                      <RenderAlbumsImages images={item.images} />
+                      <RenderArtistNames names={item.name} />
+                      <RenderReleaseDate date={item.release_date} />
+                      <RenderTracksNumbers tracks={item.total_tracks} />
+                      <RenderArtistIncluded artists={item.artists} />
+                    </CardContent>
+                    <CardActions>
+                      <Button
+                        onClick={() => {
+                          window.open(item.external_urls.spotify);
+                        }}
+                      >
+                        Preview On Spotify
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </div>
+              );
+            })
         : null}
     </div>
   );
