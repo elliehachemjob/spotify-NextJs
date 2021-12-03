@@ -1,9 +1,11 @@
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import Rating from "@mui/material/Rating";
 import Link from "next/link";
-import RenderFollowers from "./RenderFollowers";
+import RenderArtistsFollowers from "./ArtistsComponents/RenderArtistsFollowers";
+import RenderArtistNames from "./ArtistsComponents/RenderArtistNames";
+import RenderArtistsPopularity from "./ArtistsComponents/RenderArtistsPopularity";
+import RenderArtistsImages from "./ArtistsComponents/RenderArtistsImages";
+import RenderArtistsRating from "./ArtistsComponents/RenderArtistsRating";
 
 export default function DashboardDashboard({ items, SearchQuery }: any) {
   return (
@@ -24,34 +26,16 @@ export default function DashboardDashboard({ items, SearchQuery }: any) {
                     sx={{ maxWidth: 300 }}
                   >
                     <CardContent>
-                      {filteredItem.images
-                        .filter((img: any) => img.height === 160)
-                        .map((img: any) => {
-                          return (
-                            <img
-                              src={
-                                !img.url
-                                  ? "https://www.legal.ca/public/uploads/images/noimage.jpg"
-                                  : img.url
-                              }
-                            />
-                          );
-                        })}
-                      <Typography>{filteredItem.name}</Typography>
-                      <RenderFollowers
+                      <RenderArtistsImages images={filteredItem.images} />
+                      <RenderArtistNames names={filteredItem.name} />
+                      <RenderArtistsFollowers
                         followers={filteredItem.followers.total}
                       />
-                      <Typography
-                        sx={{ fontSize: 14 }}
-                        color="text.secondary"
-                        gutterBottom
-                      >
-                        {filteredItem.popularity} popularity
-                      </Typography>
-                      <Rating
-                        style={{ position: "relative", top: 25, right: 4.5 }}
-                        name="simple-controlled"
-                        value={filteredItem.popularity > 40 ? 5 : 3}
+                      <RenderArtistsPopularity
+                        popularity={filteredItem.popularity}
+                      />
+                      <RenderArtistsRating
+                        popularity={filteredItem.popularity}
                       />
                     </CardContent>
                   </Card>

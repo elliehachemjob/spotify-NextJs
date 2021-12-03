@@ -1,9 +1,12 @@
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import CardMedia from "@mui/material/CardMedia";
 import Card from "@mui/material/Card";
+import RenderArtistNames from "./ArtistsComponents/RenderArtistNames";
+import RenderReleaseDate from "./AlbumsComponents/RenderReleaseDate";
+import RenderTracksNumbers from "./AlbumsComponents/RenderTracksNumbers";
+import RenderAlbumsImages from "./AlbumsComponents/RenderAlbumsImages";
+import RenderArtistIncluded from "./AlbumsComponents/RenderArtistIncluded";
 
 export default function DisplayArtistAlbums({ items }: any) {
   return (
@@ -14,53 +17,17 @@ export default function DisplayArtistAlbums({ items }: any) {
               <div>
                 <Card style={{ margin: "10px" }} sx={{ maxWidth: 300 }}>
                   <CardContent>
-                    {item.images
-                      .filter((img: any) => img.height === 300)
-                      .map((img: any) => {
-                        return (
-                          <CardMedia
-                            component="img"
-                            height="200"
-                            image={img.url}
-                            alt="album cover"
-                          />
-                        );
-                      })}
-
-                    <Typography>{item.name}</Typography>
-
-                    <Typography
-                      sx={{ fontSize: 14 }}
-                      color="text.secondary"
-                      gutterBottom
-                    ></Typography>
-                    <Typography
-                      sx={{ position: "relative", top: 35 }}
-                      color="text.secondary"
-                    >
-                      {item.release_date}
-                    </Typography>
-                    <Typography
-                      sx={{ position: "relative", top: 30 }}
-                      color="text.secondary"
-                    >
-                      {item.total_tracks} tracks
-                    </Typography>
-                    <Typography
-                      sx={{ position: "relative", top: 25 }}
-                      color="text.secondary"
-                    >
-                      {item.artists.map((artistsIncluded: any) => {
-                        return <span> {artistsIncluded.name} /</span>;
-                      })}
-                    </Typography>
+                    <RenderAlbumsImages images={item.images} />
+                    <RenderArtistNames names={item.name} />
+                    <RenderReleaseDate date={item.release_date} />
+                    <RenderTracksNumbers tracks={item.total_tracks} />
+                    <RenderArtistIncluded artists={item.artists} />
                   </CardContent>
                   <CardActions>
                     <Button
                       onClick={() => {
                         window.open(item.external_urls.spotify);
                       }}
-                      size="small"
                     >
                       Preview On Spotify
                     </Button>
