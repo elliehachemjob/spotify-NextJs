@@ -1,3 +1,4 @@
+// @ts-ignore
 import * as type from "../types/auth";
 
 const auth = (
