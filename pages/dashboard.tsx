@@ -2,6 +2,7 @@ import SearchComponent from "../components/SearchComponent";
 import useConnectDashboard from "../hooks/useConnectDashboard";
 import DashboardDashboard from "../components/DisplayDashboard";
 import useLogin from "../hooks/useLogin";
+import Meta from "../components/Meta";
 
 export default function Dashboard() {
   useLogin();
@@ -12,7 +13,12 @@ export default function Dashboard() {
   );
 
   return (
-    <div>
+    <>
+      <Meta
+        title="Arist's Information"
+        keywords="Artists,Information"
+        description="Lists the Arists's Information"
+      />
       <SearchComponent
         searchQuery={SearchQuery}
         onChange={(e: any) => {
@@ -20,6 +26,6 @@ export default function Dashboard() {
         }}
       />
       <DashboardDashboard items={items} SearchQuery={SearchQuery} />
-    </div>
+    </>
   );
 }

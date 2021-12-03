@@ -8,15 +8,23 @@ import {
   SCOPE_URI_PARAM,
 } from "../constants/credential";
 import { server } from "../config/index";
+import Meta from "../components/Meta";
 
 const Home: NextPage = () => {
   return (
-    <Login
-      SPOTIFY_ENDPOINT_AUTHORIZATION={SPOTIFY_ENDPOINT_AUTHORIZATION}
-      CLIENT_ID={CLIENT_ID}
-      REDIRECT_URI={REDIRECT_URI}
-      SCOPE_URI_PARAM={SCOPE_URI_PARAM}
-    />
+    <>
+      <Meta
+        title="Login Portal"
+        keywords="Login,Portal"
+        description="Shows the Login Portal"
+      />
+      <Login
+        SPOTIFY_ENDPOINT_AUTHORIZATION={SPOTIFY_ENDPOINT_AUTHORIZATION}
+        CLIENT_ID={CLIENT_ID}
+        REDIRECT_URI={REDIRECT_URI}
+        SCOPE_URI_PARAM={SCOPE_URI_PARAM}
+      />
+    </>
   );
 };
 
