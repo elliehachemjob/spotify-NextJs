@@ -3,6 +3,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Rating from "@mui/material/Rating";
 import Link from "next/link";
+import RenderFollowers from "./RenderFollowers";
 
 export default function DashboardDashboard({ items, SearchQuery }: any) {
   return (
@@ -37,13 +38,9 @@ export default function DashboardDashboard({ items, SearchQuery }: any) {
                           );
                         })}
                       <Typography>{filteredItem.name}</Typography>
-                      <Typography
-                        sx={{ fontSize: 14 }}
-                        color="text.secondary"
-                        gutterBottom
-                      >
-                        {filteredItem.followers.total} followers
-                      </Typography>
+                      <RenderFollowers
+                        followers={filteredItem.followers.total}
+                      />
                       <Typography
                         sx={{ fontSize: 14 }}
                         color="text.secondary"

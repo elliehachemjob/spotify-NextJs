@@ -6,9 +6,9 @@ import Meta from "../components/Meta";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div>
-      <Meta />
-      <Nav />
-      <Component {...pageProps} />{" "}
+      {/* <Meta /> */}
+      {/* <Nav /> */}
+      <Component {...pageProps} />
     </div>
   );
 }

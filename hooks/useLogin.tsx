@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function useLogin(accessToken: any) {
-  const [value, setValue2] = useState<any>(accessToken);
-
+export default function useLogin() {
   const getReturnParamsFromSpotifyAuth = (hash: any) => {
     const stringAfterHash = hash.substring(1);
     const paramsInUrl = stringAfterHash.split("&");
@@ -21,6 +19,7 @@ export default function useLogin(accessToken: any) {
     if (window.location.hash) {
       const { access_token, expires_in, token_type } =
         getReturnParamsFromSpotifyAuth(window.location.hash);
+      console.log(`the hash is ${window.location.hash}`);
       console.log({ access_token });
       localStorage.clear();
       localStorage.setItem("accessToken", access_token);
@@ -28,12 +27,4 @@ export default function useLogin(accessToken: any) {
       localStorage.setItem("tokenType", token_type);
     }
   });
-
-  useEffect(() => {
-    if (localStorage.getItem("accessToken")) {
-      setValue2(localStorage.getItem("accessToken"));
-    }
-  }, []);
-
-  return [value, setValue2];
 }

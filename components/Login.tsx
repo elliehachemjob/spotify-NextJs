@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core/styles";
-import Head from "next/head";
 
 export default function Login(props: any) {
   const {
@@ -45,10 +44,6 @@ export default function Login(props: any) {
 
   return (
     <div className={classes.login}>
-      <Head>
-        <title>Login Page</title>
-        <meta name="Login" content="Music,Auido,Player" />
-      </Head>
       <img
         src="https://getheavy.com/wp-content/uploads/2019/12/spotify2019-830x350.jpg"
         alt="Spotify-Logo"
