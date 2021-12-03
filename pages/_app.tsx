@@ -1,10 +1,13 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
+import Nav from "../components/Nav";
+import Meta from "../components/Meta";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div>
-      Times logged in :
+      <Meta />
+      <Nav />
       <Component {...pageProps} />{" "}
     </div>
   );
