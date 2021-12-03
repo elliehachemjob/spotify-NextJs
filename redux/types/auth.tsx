@@ -1,0 +1,1 @@
+export const SET_LOGGED_NUMBERS: any = "SET_LOGGED_NUMBERS";

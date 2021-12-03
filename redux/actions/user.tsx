@@ -1,4 +1,4 @@
-import * as type from "../types";
+import * as type from "../types/user";
 // import axios from "axios";
 // import { request } from "../../util/request";
 
