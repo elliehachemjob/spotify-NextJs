@@ -7,6 +7,7 @@ import RenderReleaseDate from "./AlbumsComponents/RenderReleaseDate";
 import RenderTracksNumbers from "./AlbumsComponents/RenderTracksNumbers";
 import RenderAlbumsImages from "./AlbumsComponents/RenderAlbumsImages";
 import RenderArtistIncluded from "./AlbumsComponents/RenderArtistIncluded";
+import { justOneIndex } from "../helpers/utils";
 
 export default function DisplayArtistAlbums({ items }: any) {
   return (
